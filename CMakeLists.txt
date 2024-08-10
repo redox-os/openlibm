@@ -263,10 +263,10 @@ check_c_source_compiles("
 #error \"long double and double are the same size\"
 #endif
 int main(void ) { return 0; }
-" LONG_DOUBLE_NOT_DOUBLE)
+" OLM_LONG_DOUBLE_NOT_DOUBLE)
 
 # Add in long double functions for x86, x64 and aarch64
-if(LONG_DOUBLE_NOT_DOUBLE)
+if(OLM_LONG_DOUBLE_NOT_DOUBLE)
     list(APPEND OPENLIBM_C_SOURCE
             "${PROJECT_SRC}/src/s_copysignl.c"
             "${PROJECT_SRC}/src/s_fabsl.c"
@@ -331,7 +331,7 @@ if(LONG_DOUBLE_NOT_DOUBLE)
     )
 endif()
 
-if (LONG_DOUBLE_NOT_DOUBLE)
+if (OLM_LONG_DOUBLE_NOT_DOUBLE)
     if (${OPENLIBM_ARCH_FOLDER} STREQUAL "i387" OR ${OPENLIBM_ARCH_FOLDER} STREQUAL "amd64")
         list(APPEND OPENLIBM_C_SOURCE
             # ld80
