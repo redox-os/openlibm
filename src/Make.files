@@ -12,7 +12,7 @@ $(CUR_SRCS) = common.c \
 	k_cosf.c k_sinf.c k_tanf.c \
 	s_asinh.c s_asinhf.c s_atan.c s_atanf.c s_carg.c s_cargf.c \
 	s_cbrt.c s_cbrtf.c s_ceil.c s_ceilf.c \
-	s_copysign.c s_copysignf.c s_cos.c s_cosf.c \
+	s_copysign.c s_copysignf.c s_copysignl.c s_cos.c s_cosf.c \
 	s_csqrt.c s_csqrtf.c s_erf.c s_erff.c \
 	s_exp2.c s_exp2f.c s_expm1.c s_expm1f.c s_fabs.c s_fabsf.c s_fdim.c \
 	s_floor.c s_floorf.c \
@@ -25,7 +25,7 @@ $(CUR_SRCS) = common.c \
 	s_nextafter.c s_nextafterf.c \
 	s_nexttowardf.c s_remquo.c s_remquof.c \
 	s_rint.c s_rintf.c s_round.c s_roundf.c \
-	s_scalbln.c s_scalbn.c s_scalbnf.c s_signbit.c \
+	s_scalbln.c s_scalbn.c s_scalbnf.c s_scalbnl.c s_signbit.c \
 	s_signgam.c s_sin.c s_sincos.c \
 	s_sinf.c s_sincosf.c s_tan.c s_tanf.c s_tanh.c s_tanhf.c s_tgammaf.c \
 	s_trunc.c s_truncf.c s_cpow.c  s_cpowf.c \
@@ -46,7 +46,7 @@ endif
 # Add in long double functions for x86, x64 and aarch64
 ifeq ($(LONG_DOUBLE_NOT_DOUBLE),1)
 # C99 long double functions
-$(CUR_SRCS) +=	s_copysignl.c s_fabsl.c s_llrintl.c s_lrintl.c s_modfl.c
+$(CUR_SRCS) +=	s_fabsl.c s_llrintl.c s_lrintl.c s_modfl.c
 
 # If long double != double use these; otherwise, we alias the double versions.
 $(CUR_SRCS) +=	e_acosl.c e_asinl.c e_atan2l.c e_fmodl.c \
@@ -58,7 +58,7 @@ $(CUR_SRCS) +=	e_acosl.c e_asinl.c e_atan2l.c e_fmodl.c \
 	s_remquol.c s_roundl.c s_lroundl.c s_llroundl.c \
 	s_cpowl.c s_cargl.c \
 	s_sinl.c s_sincosl.c s_tanl.c s_truncl.c w_cabsl.c \
-	s_nextafterl.c s_rintl.c s_scalbnl.c polevll.c \
+	s_nextafterl.c s_rintl.c polevll.c \
 	s_casinl.c s_ctanl.c \
 	s_cimagl.c s_conjl.c s_creall.c s_cacoshl.c s_catanhl.c s_casinhl.c \
 	s_catanl.c s_csinl.c s_cacosl.c s_cexpl.c s_csinhl.c s_ccoshl.c \
